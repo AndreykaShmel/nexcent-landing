@@ -6,10 +6,8 @@
   <title>Nexcent — Landing Page</title>
 
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
   <!-- Свои стили -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -19,8 +17,9 @@
 <header class="header">
   <div class="container">
     <nav class="header__nav navbar navbar-expand-lg">
-      <a class="header__logo navbar-brand" href="#">
-        <img src="img/logo.svg" alt="Nexcent" class="header__logo-img">
+      <a class="header__logo navbar-brand" href="#hero">
+        <!-- Если картинки нет, покажется текст -->
+        <img src="img/logo.svg" alt="Nexcent" class="header__logo-img" onerror="this.style.display='none'">
         <span class="header__logo-text">Nexcent</span>
       </a>
 
@@ -66,7 +65,7 @@
         <a href="#" class="btn btn-success hero__btn">Register</a>
       </div>
       <div class="col-lg-6 hero__image">
-        <img src="img/hero-illustration.svg" alt="Hero illustration">
+        <img src="img/hero-illustration.svg" alt="Hero illustration" onerror="this.src='https://via.placeholder.com/500x400?text=Hero+Image'">
       </div>
     </div>
   </div>
@@ -79,17 +78,18 @@
     <p class="clients__subtitle">We have been working with some Fortune 500+ clients</p>
 
     <div class="clients__logos">
-      <img src="img/clients/client-1.svg" alt="Client 1" class="clients__logo">
-      <img src="img/clients/client-2.svg" alt="Client 2" class="clients__logo">
-      <img src="img/clients/client-3.svg" alt="Client 3" class="clients__logo">
-      <img src="img/clients/client-4.svg" alt="Client 4" class="clients__logo">
-      <img src="img/clients/client-5.svg" alt="Client 5" class="clients__logo">
-      <img src="img/clients/client-6.svg" alt="Client 6" class="clients__logo">
+      <!-- Заглушки, если нет SVG -->
+      <img src="img/clients/client-1.svg" alt="Client 1" class="clients__logo" onerror="this.src='https://via.placeholder.com/100x40?text=Logo+1'">
+      <img src="img/clients/client-2.svg" alt="Client 2" class="clients__logo" onerror="this.src='https://via.placeholder.com/100x40?text=Logo+2'">
+      <img src="img/clients/client-3.svg" alt="Client 3" class="clients__logo" onerror="this.src='https://via.placeholder.com/100x40?text=Logo+3'">
+      <img src="img/clients/client-4.svg" alt="Client 4" class="clients__logo" onerror="this.src='https://via.placeholder.com/100x40?text=Logo+4'">
+      <img src="img/clients/client-5.svg" alt="Client 5" class="clients__logo" onerror="this.src='https://via.placeholder.com/100x40?text=Logo+5'">
+      <img src="img/clients/client-6.svg" alt="Client 6" class="clients__logo" onerror="this.src='https://via.placeholder.com/100x40?text=Logo+6'">
     </div>
   </div>
 </section>
 
-<!-- ================= FEATURES (Manage community) ================= -->
+<!-- ================= FEATURES ================= -->
 <section class="features" id="features">
   <div class="container">
     <h2 class="features__title">
@@ -134,12 +134,12 @@
   </div>
 </section>
 
-<!-- ================= PRODUCT (Pixelgrade) ================= -->
+<!-- ================= PRODUCT ================= -->
 <section class="product" id="product">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 product__image">
-        <img src="img/product-illustration.svg" alt="Product illustration">
+        <img src="img/product-illustration.svg" alt="Product illustration" onerror="this.src='https://via.placeholder.com/500x400?text=Product+Image'">
       </div>
       <div class="col-lg-6 product__content">
         <h2 class="product__title">The unseen of spending three years at Pixelgrade</h2>
@@ -218,7 +218,7 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-4 testimonial__photo">
-        <img src="img/avatar.jpg" alt="Tim Smith" class="testimonial__img">
+        <img src="img/avatar.jpg" alt="Tim Smith" class="testimonial__img" onerror="this.src='https://via.placeholder.com/300x300?text=Avatar'">
       </div>
       <div class="col-md-8 testimonial__content">
         <p class="testimonial__text">
@@ -234,7 +234,7 @@
   </div>
 </section>
 
-<!-- ================= CTA (Get a Demo) ================= -->
+<!-- ================= CTA ================= -->
 <section class="cta" id="faq">
   <div class="container">
     <h2 class="cta__title">
@@ -250,7 +250,7 @@
     <div class="row gy-4 footer__top">
       <div class="col-md-4 footer__brand">
         <a href="#" class="footer__logo">
-          <img src="img/logo.svg" alt="Nexcent">
+          <img src="img/logo.svg" alt="Nexcent" onerror="this.style.display='none'">
           <span>Nexcent</span>
         </a>
       </div>
@@ -279,7 +279,7 @@
 
       <div class="col-md-4 footer__col footer__subscribe">
         <h4 class="footer__heading">Stay up to date</h4>
-        <form class="footer__form">
+        <form class="footer__form" id="subscribeForm">
           <input type="email" class="footer__input" placeholder="Your email address" required>
           <button type="submit" class="footer__submit" aria-label="Subscribe">➤</button>
         </form>
@@ -293,7 +293,8 @@
 </footer>
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<!-- Свой JS -->
+<script src="js/script.js" defer></script>
 </body>
 </html>

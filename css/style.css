@@ -22,6 +22,10 @@
 /* ============ БАЗОВЫЕ СТИЛИ ============ */
 * { box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth; /* Резервный плавный скролл */
+}
+
 body {
   margin: 0;
   font-family: var(--font-main);
@@ -32,6 +36,7 @@ body {
 
 a { text-decoration: none; }
 
+/* Кнопки Bootstrap + кастомный эффект */
 .btn-success {
   --bs-btn-bg: var(--color-primary);
   --bs-btn-border-color: var(--color-primary);
@@ -41,12 +46,29 @@ a { text-decoration: none; }
   --bs-btn-padding-y: 0.75rem;
   font-weight: 500;
   border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(76, 175, 79, 0.4);
 }
 
 /* ============ HEADER ============ */
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background: var(--color-silver);
   padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.header--scrolled {
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(245, 247, 250, 0.95);
+  backdrop-filter: blur(5px);
 }
 
 .header__nav {
@@ -78,9 +100,22 @@ a { text-decoration: none; }
   color: var(--color-grey);
   font-size: 0.95rem;
   transition: color 0.2s;
+  position: relative;
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
 }
 
 .header__link:hover { color: var(--color-primary); }
+.header__link:hover::after { width: 100%; }
 
 .header__actions {
   display: flex;
@@ -91,7 +126,10 @@ a { text-decoration: none; }
 .header__login {
   color: var(--color-primary);
   font-weight: 500;
+  transition: color 0.3s;
 }
+
+.header__login:hover { color: var(--color-primary-dark); }
 
 /* ============ HERO ============ */
 .hero {
@@ -146,7 +184,15 @@ a { text-decoration: none; }
 .clients__logo {
   max-height: 40px;
   width: auto;
-  opacity: 0.9;
+  opacity: 0.7;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.clients__logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1);
 }
 
 /* ============ FEATURES ============ */
@@ -174,12 +220,23 @@ a { text-decoration: none; }
   padding: 2rem 1.5rem;
   height: 100%;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-bottom: 4px solid transparent;
+  transition: all 0.3s ease;
+  
+  /* Начальное состояние для JS-анимации */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border-bottom-color: var(--color-primary);
 }
 
 .feature-card__icon {
@@ -269,6 +326,7 @@ a { text-decoration: none; }
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .testimonial__text {
@@ -338,10 +396,13 @@ a { text-decoration: none; }
 .footer__link {
   color: var(--color-silver);
   font-size: 0.9rem;
-  transition: color 0.2s;
+  transition: color 0.2s, padding-left 0.2s;
 }
 
-.footer__link:hover { color: var(--color-primary); }
+.footer__link:hover { 
+  color: var(--color-primary); 
+  padding-left: 5px;
+}
 
 .footer__form {
   position: relative;
@@ -356,6 +417,12 @@ a { text-decoration: none; }
   background: rgba(255, 255, 255, 0.12);
   color: var(--color-white);
   font-size: 0.9rem;
+  outline: none;
+  transition: background 0.3s;
+}
+
+.footer__input:focus {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .footer__input::placeholder { color: var(--color-l-grey); }
@@ -370,7 +437,10 @@ a { text-decoration: none; }
   color: var(--color-white);
   cursor: pointer;
   font-size: 1.1rem;
+  transition: color 0.3s;
 }
+
+.footer__submit:hover { color: var(--color-primary); }
 
 .footer__bottom {
   text-align: center;
@@ -388,6 +458,7 @@ a { text-decoration: none; }
     padding: 1.5rem;
     border-radius: 12px;
     margin-top: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
   }
 
   .header__list {
