@@ -17,9 +17,9 @@
 <header class="header">
   <div class="container">
     <nav class="header__nav navbar navbar-expand-lg">
+      <!-- Логотип (без дублирования текста) -->
       <a class="header__logo navbar-brand" href="#hero">
-        <img src="img/logo.svg" alt="Nexcent" class="header__logo-img">
-        <span class="header__logo-text">Nexcent</span>
+        <img src="img/logo.svg" alt="Nexcent" class="header__logo-img" style="height: 30px;">
       </a>
 
       <button class="header__burger navbar-toggler" type="button"
@@ -63,9 +63,8 @@
         </p>
         <a href="#" class="btn btn-success hero__btn">Register</a>
       </div>
-      <div class="col-lg-6 hero__image">
-        <!-- Изображение из макета называется promo-img.svg -->
-        <img src="img/promo-img.svg" alt="Hero illustration">
+      <div class="col-lg-6 hero__image text-center">
+        <img src="img/promo-img.svg" alt="Hero illustration" class="img-fluid">
       </div>
     </div>
   </div>
@@ -78,7 +77,6 @@
     <p class="clients__subtitle">We have been working with some Fortune 500+ clients</p>
 
     <div class="clients__logos">
-      <!-- Используем правильные названия clients-logo-X.svg -->
       <img src="img/clients-logo-1.svg" alt="Client 1" class="clients__logo">
       <img src="img/clients-logo-2.svg" alt="Client 2" class="clients__logo">
       <img src="img/clients-logo-3.svg" alt="Client 3" class="clients__logo">
@@ -100,7 +98,6 @@
     <div class="row g-4 features__list">
       <div class="col-md-4">
         <article class="feature-card">
-          <!-- Иконка members.svg -->
           <img src="img/members.svg" alt="Membership" class="feature-card__icon">
           <h3 class="feature-card__title">Membership Organisations</h3>
           <p class="feature-card__text">
@@ -112,7 +109,6 @@
 
       <div class="col-md-4">
         <article class="feature-card">
-          <!-- Иконка manage-1.svg -->
           <img src="img/manage-1.svg" alt="National Associations" class="feature-card__icon">
           <h3 class="feature-card__title">National Associations</h3>
           <p class="feature-card__text">
@@ -124,7 +120,6 @@
 
       <div class="col-md-4">
         <article class="feature-card">
-          <!-- Иконка clubs.svg -->
           <img src="img/clubs.svg" alt="Clubs And Groups" class="feature-card__icon">
           <h3 class="feature-card__title">Clubs And Groups</h3>
           <p class="feature-card__text">
@@ -141,9 +136,9 @@
 <section class="product" id="product">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-6 product__image">
-        <!-- Иллюстрация manage-2.svg -->
-        <img src="img/manage-2.svg" alt="Product illustration">
+      <div class="col-lg-6 product__image text-center">
+        <!-- Используем manage-2.svg, задаем ему нормальный размер через CSS -->
+        <img src="img/manage-2.svg" alt="Product illustration" class="img-fluid">
       </div>
       <div class="col-lg-6 product__content">
         <h2 class="product__title">The unseen of spending three years at Pixelgrade</h2>
@@ -221,11 +216,10 @@
 <section class="testimonial" id="testimonial">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-4 testimonial__photo">
-        <!-- Фото клиента customer.jpg -->
-        <img src="img/customer.jpg" alt="Tim Smith" class="testimonial__img">
+      <div class="col-md-4 testimonial__photo text-center">
+        <img src="img/customer.jpg" alt="Tim Smith" class="testimonial__img img-fluid">
       </div>
-      <div class="col-md-8 testimonial__content">
+      <div class="col-md-8 testimonial__content mt-4 mt-md-0">
         <p class="testimonial__text">
           Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui,
           vel rutrum risus tincidunt ullamcorper. Proin eu enim metus. Vivamus sed libero ornare,
@@ -245,9 +239,8 @@
     <h2 class="cta__title">
       Lessons and insights <span class="cta__title-accent">from 8 years</span>
     </h2>
-    <!-- Заменили текстовую стрелку на картинку arrow-right.svg -->
-    <a href="#" class="btn btn-success cta__btn">
-      Get a Demo <img src="img/arrow-right.svg" alt="arrow" style="width: 16px; margin-left: 8px;">
+    <a href="#" class="btn btn-success cta__btn d-inline-flex align-items-center">
+      Get a Demo <img src="img/arrow-right.svg" alt="arrow" class="ms-2" style="width: 16px;">
     </a>
   </div>
 </section>
@@ -258,8 +251,8 @@
     <div class="row gy-4 footer__top">
       <div class="col-md-4 footer__brand">
         <a href="#" class="footer__logo">
-          <img src="img/logo.svg" alt="Nexcent">
-          <span>Nexcent</span>
+          <!-- Текст убран, так как он есть в SVG -->
+          <img src="img/logo.svg" alt="Nexcent" style="height: 30px;">
         </a>
       </div>
 
@@ -289,9 +282,8 @@
         <h4 class="footer__heading">Stay up to date</h4>
         <form class="footer__form" id="subscribeForm">
           <input type="email" class="footer__input" placeholder="Your email address" required>
-          <!-- Заменили текстовую стрелку на картинку send.svg -->
           <button type="submit" class="footer__submit" aria-label="Subscribe">
-            <img src="img/send.svg" alt="Send" style="width: 20px;">
+            <img src="img/send.svg" alt="Send" style="width: 20px; height: 20px;">
           </button>
         </form>
       </div>
