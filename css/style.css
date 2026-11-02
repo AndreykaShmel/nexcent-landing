@@ -495,3 +495,13 @@ a { text-decoration: none; }
   .footer__logo { justify-content: center; }
   .footer__form { max-width: 100%; }
 }
+/* Фикс размеров для SVG-иконок */
+.stat__icon {
+  width: 40px;
+  height: 40px;
+}
+.feature-card__icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
